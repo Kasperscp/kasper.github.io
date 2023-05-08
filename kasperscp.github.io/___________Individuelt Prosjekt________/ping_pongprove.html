@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pong Game JavaScript</title>
+    <style>
+        body{
+            background-color: red;
+        }
+        #pong{
+            border: 2px solid #FFF;
+             /* her */
+            margin :70px;
+            top:0;
+            right:0;
+            left:0;
+            bottom:0;
+        }
+
+        h1{
+            text-align: center;
+            font-family: sans-serif;
+            
+        }
+
+        .footer {
+            background-color: #f1f1f1;
+            padding-top: 200px;
+            text-align: center;
+            font-size: 14px;
+          }
+          
+          @media (max-width: 768px) {
+            .footer {
+              font-size: 12px;
+            }
+          }
+
+          .footer {
+      background-color: #f2f2f2;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      height: 180px;
+      
+    }
+
+    
+
+    .footer p, .footer h3 {
+      margin: 30px;
+    }
+    
+    .footer ul {
+      list-style-type: disc;
+      padding-left: 20px;¨
+      
+    }
+    
+    .footer div {
+      flex-basis: calc(33.33% - 20px);
+    }
+    </style>
+
+<link rel="stylesheet" href="style copy.css">
+</head>
+<body>
+
+    <header>
+        <div class="topnav">
+            <a href="index.html" class="logo">HJEM</a>
+        </div>
+
+
+        <div class="unav">
+
+
+            <nav>
+                <button id="hamburger" class="navbar_lenke">
+                    <div id="hamburger_1"></div>
+                    <div id="hamburger_2"></div>
+                    <div id="hamburger_3"></div>
+                    
+                </button>
+
+                <div class="dropdown-menu">
+
+                    <ul class="dropdown_ul"> 
+                        <li><a href="spill1.html" id="spill_1">Spill1</a></li>
+                        <li><a href="4pårad.html" id="spill_2">4 på rad</a></li>
+                        <li><a href="ping_pongprove.html" id="spill_3">Ping Pong</a></li>
+                        <li><a href="spill4.html" id="spill_4">Mattespill</a></li>
+                        <li><a href="#" id="spill_5">Spill5</a></li>
+                        <li><a href="#" id="spill_6">Spill6</a></li>
+                    </ul>
+
+                </div>
+            </nav>
+        </div>
+
+    </header>
+
+    <h1>Ping Pong Spill</h1>
+   <canvas id="pong" width="600" height="400"></canvas>
+   <script src="pong.js"></script>
+
+
+
+
+   <div class="content">
+    <!-- Din nettsideinnhold her -->
+  </div>
+
+  <div class="footer">
+    <div>
+      <h3>Laget av:</h3>
+      <ul>
+        
+        <li>Kasper Schaug-Pettersen</li>
+        
+      </ul>
+    </div>
+    
+    <div>
+      <h3>Adresse</h3>
+      <ul>
+        
+        <li>Benedikts vei 22</li>
+        
+      </ul>
+    </div>
+    
+    <div>
+      <h3>Kildeliste:</h3>
+      <ul>
+        
+        <li><a href="Kilder.html">Kilder</a></li>
+        
+      </ul>
+    </div>
+  </div>
+
+</body>
+</html>
+

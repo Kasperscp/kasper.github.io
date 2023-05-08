@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .flex-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    
+    .flex-item {
+      text-align: center;
+    }
+    
+    .math-game {
+      background-color: red;
+      padding: 40px;
+      border-radius: 30px;
+      color: black;
+      width: 600px;
+      height: 400px;
+      border: 10px solid black;
+    }
+    
+    .math-game h2 {
+      margin-top: 0;
+    }
+    
+    .math-game input[type="number"] {
+      width: 100px;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+    
+    .math-game button {
+      background-color: #4caf50;
+      color: #ffffff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    .math-game p#result {
+      margin-top: 10px;
+    }
+
+    .footer {
+            background-color: #f1f1f1;
+            padding: 20px;
+            text-align: center;
+            font-size: 14px;
+          }
+          
+          @media (max-width: 768px) {
+            .footer {
+              font-size: 12px;
+            }
+          }
+
+          .footer {
+      background-color: #f2f2f2;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-bottom: 50px;
+      height: 180px;
+      
+    }
+
+    
+
+    .footer p, .footer h3 {
+      margin: 30px;
+    }
+    
+    .footer ul {
+      list-style-type: disc;
+      padding-left: 20px;¨
+      
+    }
+    
+    .footer div {
+      flex-basis: calc(33.33% - 20px);
+    }
+    
+  </style>
+
+<link rel="stylesheet" href="spill4.css">
+</head>
+<body>
+    <header>
+        <div class="topnav">
+            <a href="index.html" class="logo">HJEM</a>
+        </div>
+
+
+        <div class="unav">
+
+
+            <nav>
+                <button id="hamburger" class="navbar_lenke">
+                    <div id="hamburger_1"></div>
+                    <div id="hamburger_2"></div>
+                    <div id="hamburger_3"></div>
+                </button>
+
+                <div class="dropdown-menu">
+
+                    <ul class="dropdown_ul"> 
+                        <li><a href="spill1.html" id="spill_1">Spill1</a></li>
+                        <li><a href="4pårad.html" id="spill_2">4 på rad</a></li>
+                        <li><a href="ping_pongprove.html" id="spill_3">Ping Pong</a></li>
+                        <li><a href="spill4.html" id="spill_4">Mattespill</a></li>
+                        <li><a href="#" id="spill_5">Spill5</a></li>
+                        <li><a href="#" id="spill_6">Spill6</a></li>
+                    </ul>
+
+                </div>
+            </nav>
+        </div>
+
+    </header>
+
+    
+  <div class="flex-container">
+    <div class="flex-item">
+      <div class="math-game">
+        <h2>MatteSpill</h2>
+        <p id="question"></p>
+        <p>Løs regnestykket:</p>
+        <p id="answer-form"></p>
+        <button onclick="checkAnswer()">Sjekk svar</button>
+        <p id="result"></p>
+        <p>Tid igjen: <span id="timer">60</span> sekunder</p>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    var counter = 0;
+    var timer = 60;
+    
+    generateQuestion();
+    startTimer();
+    
+    function generateQuestion() {
+      var num1 = Math.floor(Math.random() * 10);
+      var num2 = Math.floor(Math.random() * 10);
+      var operator = ['+', '-', '*', '/'][Math.floor(Math.random() * 4)];
+      var question = num1 + ' ' + operator + ' ' + num2;
+      
+      document.getElementById('question').textContent = question;
+      document.getElementById('answer-form').innerHTML = '<input type="number" id="answer" step="1" />';
+    }
+    
+    function checkAnswer() {
+      var answer = document.getElementById("answer").value;
+      var question = document.getElementById("question").textContent;
+      var result = document.getElementById("result");
+      
+      var expectedAnswer = Math.round(eval(question));
+      
+      if (answer == expectedAnswer) {
+        result.innerHTML = "Riktig svar!";
+        counter++;
+      } else {
+        result.innerHTML = "Feil svar, prøv igjen.";
+      }
+      
+      generateQuestion();
+    }
+    
+    function startTimer() {
+      var interval = setInterval(function() {
+        timer--;
+        document.getElementById("timer").textContent = timer;
+        
+        if (timer <= 0) {
+          clearInterval(interval);
+          document.getElementById("result").textContent = "Tiden er ute! Du fikk " + counter + " riktig(e) svar.";
+        }
+      }, 1000);
+    }
+  </script>
+
+<div class="content">
+    <!-- Din nettsideinnhold her -->
+  </div>
+
+  <div class="footer">
+    <div>
+      <h3>Laget av</h3>
+      <ul>
+        
+        <li>Kasper Schaug-Pettersen</li>
+        
+      </ul>
+    </div>
+    
+    <div>
+      <h3>Adresse</h3>
+      <ul>
+        
+        <li>Benedikts vei 22</li>
+        
+      </ul>
+    </div>
+    
+    <div>
+      <h3>Overskrift 3</h3>
+      <ul>
+        
+        <li>Kilder</li>
+        
+      </ul>
+    </div>
+  </div>
+
+</body>
+</html>
